@@ -4,6 +4,8 @@
 ### Models
 
 ### Controllers
+Api::CitiesController (index)
+Api::CategoriesController (index)
 
 ### Views
 
@@ -13,7 +15,11 @@
 ### Collections
 
 ### Views
-* PostForm
+* SearchShow
+* CityIndex (composite view, contains CityIndexItem subview)
+* CityIndexItem
+* CategoryIndex (composite view, contains CategoryIndexItem subview)
+* CategoryIndexItem
 
 ## Gems/Libraries
 * Filepicker

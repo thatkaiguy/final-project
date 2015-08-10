@@ -12,7 +12,6 @@
 * users/new.html.erb
 * session/new.html.erb
 
-
 ## Backbone
 ### Models
 

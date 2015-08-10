@@ -4,10 +4,10 @@
 ### Models
 
 ### Controllers
-Api::BlogsController (search)
-Api::PostsController (search)
+Api::ActivitiesController (filter_by)
 
 ### Views
+* activities/filter_results.json.jbuilder
 
 ## Backbone
 ### Models
@@ -15,7 +15,6 @@ Api::PostsController (search)
 ### Collections
 
 ### Views
-* BlogSearchItem
-* SearchShow (composite view, contains BlogsIndex and PostsIndex subviews)
+* ActivitiesMapSearch
 
 ## Gems/Libraries

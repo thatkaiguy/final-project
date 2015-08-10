@@ -16,8 +16,7 @@ built on Rails and Backbone. Users can:
 - [ ] Book activities (traveler)
 - [ ] Search activities by city
 - [ ] Search activities by category
-- [ ] Rate a provider and write a review
-- [ ] Rate a traveler and write a review
+- [ ] Rate an activity and write a review
 - [ ] Search activities by map and filter by activity category
 
 
@@ -31,9 +30,7 @@ built on Rails and Backbone. Users can:
 ## Implementation Timeline
 
 ### Phase 1: User Authentication (~1 day)
-Implement user authentication. There will be two types of users travelers and
-providers. Travelers will be able to store account details (contact info,
-favorite activies, etc) and providers will be able to post activities for
+Implement user authentication. Travelers will be able to book activities and providers will be able to post activities for
 travelers to book.
 
 [Details][phase-one]
@@ -54,8 +51,7 @@ by geographic location and by categories.
 
 ### Phase 4: Reviews (~1-2 days)
 I will work on creating user profile pages so that travelers may write reviews
-for a provider whose trip the traveler has purchased and providers may write
-reviews for a traveler that has taken a listed trip.
+for an activity.
 
 [Details][phase-four]
 

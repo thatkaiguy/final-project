@@ -4,17 +4,20 @@
 ### Models
 
 ### Controllers
-Api::PostsController (feed)
+Api::ReviewsController (create, destroy, index)
 
 ### Views
-posts/feed.json.jbuilder
+* reviews/index.json.jbuilder
 
 ## Backbone
 ### Models
+Review
 
 ### Collections
+Reviews
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
+* ReviewsIndex (composite view, contains ReviewsIndexItem subview)
+* ReviewIndexItem
 
 ## Gems/Libraries
