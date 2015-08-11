@@ -63,7 +63,6 @@ map and filter them by activity category.
 
 ### Bonus Features (TBD)
 - [ ] Pagination/infinite scroll for activities
-- [ ] Multiple sessions/session management
 - [ ] User avatars
 - [ ] Typeahead search bar
 

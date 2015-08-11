@@ -26,6 +26,12 @@ id          | integer   | not null, primary key
 category_id | integer   | not null, foreign key (references categories)
 activity_id | integer   | not null, foreign key (references activities)
 
+## categories
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+label       | string    | not null, unique
+
 ## reviews
 column name | data type | details
 ------------|-----------|-----------------------
