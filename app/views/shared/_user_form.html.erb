@@ -1,0 +1,26 @@
+<% action = is_login_page ? session_url : users_url %>
+<% button_text = is_login_page ? "Login" : "Create User" %>
+
+<form action="<%= action %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for "user_email">Email</label>
+  <input
+    type="text"
+    name="user[email]"
+    id="user_email"
+    value="<%= user.email %>"><br>
+
+  <label for="user_pw">Password</label>
+  <input
+  type="password"
+  name="user[password]"
+  id="user_pw"
+  value="<%= user.password %>">
+
+  <input type="submit" value="<%= button_text %>">
+</form>
+
+<% if is_login_page %>
+  <a href="<%= new_user_url %>">Sign Up</a>
+<% end %>
