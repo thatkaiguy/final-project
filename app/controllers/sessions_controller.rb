@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       login!(@user)
       redirect_to root_url
     else
-      # TODO flash message?
+      flash.now[:errors] = ["Email or password incorrect."]
       @user = User.new(email: user_email)
       render :new
     end
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
   private
 
   def user_email
-    params[:user][:username]
+    params[:user][:email]
   end
 
   def user_password

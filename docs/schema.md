@@ -8,16 +8,20 @@ creator_id  | integer   | not null, foreign key (references users)
 title       | string    | not null
 description | text      | not null
 img_url     | string    | null
-city_id     | integer   | not null, foreign key (references cities)
+address_id  | integer   | not null, foreign key (references cities)
 capacity    | integer   | not null
 
-## cities
+## addresses
 
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-name        | string    | not null, unique (composite with state)
-state       | string    | not null, unique (composite with name)
+address1    | string    | null, unique (composite key 1)
+address2    | string    | null, unique (composite key 1)
+city        | string    | not null, unique (composite key 1)
+state       | string    | not null, unique (composite key 1)
+country     | string    | not null, unique (composite key 1)
+postal_code | string    | not null, unique (composite key 1)
 
 ## category_links
 column name | data type | details

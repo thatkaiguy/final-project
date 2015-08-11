@@ -11,10 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811162127) do
+ActiveRecord::Schema.define(version: 20150811183842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.integer  "creator_id",  null: false
+    t.integer  "address_id",  null: false
+    t.string   "title",       null: false
+    t.text     "description", null: false
+    t.string   "img_url",     null: false
+    t.integer  "capacity",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "activities", ["creator_id", "title"], name: "index_activities_on_creator_id_and_title", unique: true, using: :btree
+  add_index "activities", ["id"], name: "index_activities_on_id", using: :btree
+  add_index "activities", ["title"], name: "index_activities_on_title", using: :btree
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city",        null: false
+    t.string   "state",       null: false
+    t.string   "country",     null: false
+    t.string   "postal_code", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "addresses", ["address1", "address2", "city", "state", "country", "postal_code"], name: "addresses_must_be_unique", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
