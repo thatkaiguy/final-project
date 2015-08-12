@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: 'json'} do
     resources :activities, only: [:create, :destroy, :show]
+    resources :addresses, only: [:create, :destroy, :show]
   end
 end

@@ -1,0 +1,27 @@
+
+  <label for="address_1">Address Line 1</label>
+  <input type="text"
+         id="address_1"
+         name="address[address1]"
+         value="<%= address.escape('address1') %>">
+
+ <label for="address_2">Address Line 2</label>
+ <input type="text"
+        id="address_2"
+        name="address[address2]"
+        value="<%= address.escape('address2') %>">
+
+  <label for="address_city">City</label>
+  <input type="text"
+         id="address_city"
+         name="address[city]"
+         value="<%= address.escape('city') %>">
+
+ <label for="address_state">State</label>
+ <%= JST['_states_dropdown']() %>
+
+ <label for="address_postal_code">Postal Code</label>
+ <input type="text"
+        id="address_postal_code"
+        name="address[postal_code]"
+        value="<%= address.escape('postal_code') %>">

@@ -4,10 +4,13 @@ window.HeadOutdoors = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new HeadOutdoors.Routers.Router({
+      $rootEl: $('.head-outdoors-app')
+    });
+    Backbone.history.start();
   }
 };
 
-$(document).ready(function(){
-  HeadOutdoors.initialize();
-});
+// $(document).ready(function(){
+//   HeadOutdoors.initialize();
+// });

@@ -1,0 +1,33 @@
+<h3>Offer a New Activity</h3>
+
+<form class="activity-form">
+  <label for="activity_title">Title</label>
+  <input type="text"
+         id="activity_title"
+         name="activity[title]"
+         value="<%= activity.escape('title') %>">
+
+  <label for="activity_desc">Description</label>
+  <textarea id="activity_desc"
+            name="activity[description]" rows="8" cols="40">
+    <%= activity.escape('description') %>
+  </textarea>
+
+  <label for="activity_img_url">Image Link</label>
+  <input type="text"
+         id="activity_img_url"
+         name="activity[img_url]"
+         value="<%= activity.escape('img_url') %>">
+
+   <label for="activity_capacity">Capacity</label>
+   <input type="text"
+          id="activity_capacity"
+          name="activity[capacity]"
+          value="<%= activity.escape('capacity') %>">
+
+  <div class="div-address-form">
+
+  </div>
+
+  <input type="submit" value="Create Activity">
+</form>
