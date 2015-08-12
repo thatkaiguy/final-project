@@ -1,9 +1,13 @@
-<%= button_to "Logout", session_url, method: :delete %>
 
-<div class="head-outdoors-app">
-
-</div>
+<div class="app-header"></div>
+<div class="head-outdoors-app"></div>
 
 <script type="text/javascript">
-  $(HeadOutdoors.initialize);
+  $(function() {
+    HeadOutdoors.CURRENT_USER_EMAIL = {
+      emai: "<%= current_user.email %>"
+    };
+
+    HeadOutdoors.initialize();
+  });
 </script>
