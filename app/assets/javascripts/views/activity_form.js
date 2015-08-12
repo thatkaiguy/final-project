@@ -36,18 +36,17 @@ HeadOutdoors.Views.ActivityForm = Backbone.CompositeView.extend({
     var activityJSON = $frmActivity.serializeJSON();
 
     // save address - on success save activity - on success navigate to activity
-    debugger;
-
     var address = new HeadOutdoors.Models.Address(addressJSON);
     address.save({}, {
       success: function(address) {
+        activityJSON.activity.address_id = address.id;
         var activity = new HeadOutdoors.Models.Activity(activityJSON);
-        activity.address_id = address.id;
+
         activity.save({}, {
           success: function(activity) {
             Backbone.history.navigate('#/activities/' + activity.id, {trigger: true})
           }
-        })
+        });
       }
     });
   }

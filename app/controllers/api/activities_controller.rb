@@ -1,7 +1,6 @@
 class Api::ActivitiesController < ApplicationController
   def create
     @activity = current_user.offered_activities.new(activity_params)
-    # TODO attach an address to the model before saving!!!
 
     if @activity.save
       render json: @activity

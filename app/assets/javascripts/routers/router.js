@@ -19,7 +19,7 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
     var activityFormView = new HeadOutdoors.Views.ActivityForm({
       model: new HeadOutdoors.Models.Activity()
     });
-
+    
     this._swap(activityFormView);
   },
 
