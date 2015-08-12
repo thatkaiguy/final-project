@@ -3,6 +3,7 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
+    this.addReviewsIndexSubview();
   },
 
   render: function(){
@@ -13,7 +14,10 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
   },
 
   addReviewsIndexSubview: function() {
-
+    var reviewsIndexView = new HeadOutdoors.Views.ReviewsIndex({
+      collection: this.model.reviews()
+    });
+    this.addSubview('div.reviews-index', reviewsIndexView);
   }
 
 });

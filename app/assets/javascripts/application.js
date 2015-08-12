@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.serializejson
 //= require underscore
+//= require bootstrap
 //= require backbone
 //= require head_outdoors
 //= require_tree ../templates
