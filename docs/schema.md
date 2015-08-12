@@ -42,7 +42,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users)
 num_stars   | integer   | not null
-description | text      | null
+body        | text      | null
 activity_id | integer   | not null, foreign key (references activities)
 
 ## booked_activities
