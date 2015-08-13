@@ -6,6 +6,8 @@ HeadOutdoors.Views.SearchResultsIndex = Backbone.CompositeView.extend({
     this.collection.each(this.addSearchResultItemSubview.bind(this));
   },
 
+  className: 'search-results-index',
+
   render: function() {
     var content = this.template();
     this.$el.html(content);
@@ -14,6 +16,10 @@ HeadOutdoors.Views.SearchResultsIndex = Backbone.CompositeView.extend({
   },
 
   addSearchResultItemSubview: function(activity) {
-    // TODO add search result item class
+    var searchResultItemView = new HeadOutdoors.Views.SearchResultIndexItem({
+      model: activity
+    });
+
+    this.addSubview('.search-results-list', searchResultItemView);
   }
 });
