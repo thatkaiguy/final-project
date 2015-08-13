@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :activities, only: [:create, :destroy, :show]
     resources :reviews, only: [:index]
     resources :addresses, only: [:create, :destroy, :show, :index]
+    resources :searches, only: [:index]
   end
 end

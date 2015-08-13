@@ -13,6 +13,10 @@
 #
 
 class Address < ActiveRecord::Base
+  has_many :activities,
+  foreign_key: :address_id,
+  class_name: :Activity
+
   validates :city, :state, :postal_code, presence: true
   validates_uniqueness_of :city, scope: [ :state, :postal_code ]
 end
