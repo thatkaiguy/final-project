@@ -2,15 +2,19 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
   routes: {
     '' : 'searchIndex',
     'activities/new' : 'newActivity',
-    'activities/:id' : 'showActivity'
+    'activities/:id' : 'showActivity',
+    'search/results' : 'showSearchResultsIndex'
   },
 
   initialize: function(options) {
     this.$rootEl = options.$rootEl;
+    this.activities = new HeadOutdoors.Collections.Activities();
   },
 
   searchIndex: function() {
-    var searchIndexView = new HeadOutdoors.Views.SearchIndex();
+    var searchIndexView = new HeadOutdoors.Views.SearchIndex({
+      collection: this.activities
+    });
 
     this._swap(searchIndexView);
   },
@@ -31,6 +35,14 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
 
     activity.fetch();
     this._swap(activityShowForm);
+  },
+
+  showSearchResultsIndex: function() {
+    var searchResultsIndexView = new HeadOutdoors.Views.SearchResultsIndex({
+      collection: this.activities
+    });
+
+    this._swap(searchResultsIndexView);
   },
 
   _swap: function(view) {
