@@ -1,0 +1,9 @@
+<ul class="cities-list">
+  <% cities.each(function(city) { %>
+    <li>
+      <a href="<%= '#/browse/cities/' + encodeURIComponent(city.escape('name')) %>">
+        <%= city.escape('name') %>
+      </a>
+    </li>
+  <% }); %>
+</ul>

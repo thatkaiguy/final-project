@@ -3,12 +3,35 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
     '' : 'searchIndex',
     'activities/new' : 'newActivity',
     'activities/:id' : 'showActivity',
-    'search/results' : 'showSearchResultsIndex'
+    'search/results' : 'showSearchResultsIndex',
+    'browse/cities' : 'browseByCities',
+    'browse/cities/:city' : 'browseByCity'
   },
 
   initialize: function(options) {
     this.$rootEl = options.$rootEl;
     this.activities = new HeadOutdoors.Collections.Activities();
+  },
+
+  browseByCity: function(city) {
+    var queriedActivites = new HeadOutdoors.Collections.SearchResults();
+    var browseCityIndexView = new HeadOutdoors.Views.BrowseCityIndex({
+      city: city,
+      collection: queriedActivites
+    });
+    
+    queriedActivites.fetch({ data: $.param({ city: city }) });
+    this._swap(browseCityIndexView);
+  },
+
+  browseByCities: function() {
+    var cities = new HeadOutdoors.Collections.Cities();
+    var browseByCitiesView = new HeadOutdoors.Views.BrowseByCities({
+      collection: cities
+    });
+
+    cities.fetch();
+    this._swap(browseByCitiesView);
   },
 
   searchIndex: function() {
