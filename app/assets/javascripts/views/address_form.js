@@ -8,6 +8,7 @@ HeadOutdoors.Views.AddressForm = Backbone.CompositeView.extend({
   render: function(){
     var content = this.template({ address: this.model });
     this.$el.html(content);
+    this.$el.attr("role", "form")
     return this;
   }
 });

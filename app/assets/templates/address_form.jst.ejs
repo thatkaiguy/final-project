@@ -1,27 +1,40 @@
-
+<div class="form-group">
   <label for="address_1">Address Line 1</label>
   <input type="text"
          id="address_1"
          name="address[address1]"
+         class="form-control"
          value="<%= address.escape('address1') %>">
+</div>
 
+<div class="form-group">
  <label for="address_2">Address Line 2</label>
  <input type="text"
         id="address_2"
         name="address[address2]"
+        class="form-control"
         value="<%= address.escape('address2') %>">
+</div>
 
+<div class="form-group">
   <label for="address_city">City</label>
   <input type="text"
          id="address_city"
          name="address[city]"
+         class="form-control"
          value="<%= address.escape('city') %>">
+</div>
 
+<div class="form-group">
  <label for="address_state">State</label>
  <%= JST['_states_dropdown']() %>
+</div>
 
+<div class="form-group">
  <label for="address_postal_code">Postal Code</label>
  <input type="text"
         id="address_postal_code"
         name="address[postal_code]"
+        class="form-control"
         value="<%= address.escape('postal_code') %>">
+</div>
