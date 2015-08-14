@@ -15,6 +15,7 @@ HeadOutdoors.Views.ActivityForm = Backbone.CompositeView.extend({
   render: function(){
     var content = this.template({ activity: this.model });
     this.$el.html(content);
+    this.$el.find('#activity_category').tagsinput();
     this.attachSubviews();
     return this;
   },
@@ -34,7 +35,9 @@ HeadOutdoors.Views.ActivityForm = Backbone.CompositeView.extend({
 
     var addressJSON = $frmAddress.serializeJSON();
     var activityJSON = $frmActivity.serializeJSON();
+    var categoriesJSON = $frmActivity.find('#activity_category').tagsinput('items');
 
+    debugger
     // save address - on success save activity - on success navigate to activity
     var address = new HeadOutdoors.Models.Address(addressJSON);
     address.save({}, {
@@ -44,6 +47,19 @@ HeadOutdoors.Views.ActivityForm = Backbone.CompositeView.extend({
 
         activity.save({}, {
           success: function(activity) {
+            categoriesJSON.forEach(function(cat_str) {
+              debugger;
+              var category = new HeadOutdoors.Models.Category({
+                label: cat_str
+              });
+
+              category.save({}, {
+                success: function() {
+                  // save success create link object
+                  debugger
+                }
+              })
+            });
             Backbone.history.navigate('#/activities/' + activity.id, {trigger: true})
           }
         });

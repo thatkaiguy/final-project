@@ -26,6 +26,12 @@ class Activity < ActiveRecord::Base
   foreign_key: :activity_id,
   class_name: :Review
 
+  has_many :category_links
+
+  has_many :categories,
+  through: :category_links,
+  source: :category
+
   # TODO reconsider required img_url
   validates :creator, :address, :title, :description, :img_url, presence: true
   validates_uniqueness_of :creator_id, scope: :title

@@ -15,6 +15,7 @@
 //= require jquery.serializejson
 //= require underscore
 //= require bootstrap
+//= require bootstrap-tagsinput
 //= require backbone
 //= require head_outdoors
 //= require_tree ../templates
