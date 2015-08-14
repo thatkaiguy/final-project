@@ -26,7 +26,8 @@ class Activity < ActiveRecord::Base
   foreign_key: :activity_id,
   class_name: :Review
 
-  has_many :category_links
+  has_many :category_links,
+  dependent: :destroy
 
   has_many :categories,
   through: :category_links,

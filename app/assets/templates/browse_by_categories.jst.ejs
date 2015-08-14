@@ -1,0 +1,9 @@
+<ul class="categories-list">
+  <% categories.each(function(category) { %>
+    <li>
+      <a href="<%= '#/browse/categories/' + category.escape('id') %>">
+        <%= category.escape('label') %>
+      </a>
+    </li>
+  <% }); %>
+</ul>

@@ -1,6 +1,10 @@
 HeadOutdoors.Views.SearchResultIndexItem = Backbone.CompositeView.extend({
   template: JST['search_result_index_item'],
 
+  initialize: function() {
+    this.listenTo(this.model, 'sync', this.render);
+  },
+
   tagName: 'div',
 
   className: 'search-result-index-item',

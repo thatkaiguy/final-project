@@ -1,4 +1,9 @@
 class Api::CategoryLinksController < ApplicationController
+  def index
+    @category_links = CategoryLink.where(category_id: params[:category_id])
+    render json: @category_links
+  end
+
   def create
     @category_link = CategoryLink.new(category_link_params)
     if @category_link.save

@@ -6,7 +6,6 @@ HeadOutdoors.Views.BrowseByCities = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    // debugger;
     var content = this.template({
       cities: this.collection
     });

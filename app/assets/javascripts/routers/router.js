@@ -5,7 +5,9 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
     'activities/:id' : 'showActivity',
     'search/results' : 'showSearchResultsIndex',
     'browse/cities' : 'browseByCities',
-    'browse/cities/:city' : 'browseByCity'
+    'browse/cities/:city' : 'browseByCity',
+    'browse/categories' : 'browseByCategories',
+    'browse/categories/:id' : 'browseByCategory'
   },
 
   initialize: function(options) {
@@ -13,14 +15,50 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
     this.activities = new HeadOutdoors.Collections.Activities();
   },
 
+  browseByCategory: function(id) {
+    debugger;
+    var categoryLinks = new HeadOutdoors.Collections.CategoryLinks();
+    var queriedActivities = new HeadOutdoors.Collections.Activities();
+
+    this.activities.reset();
+    var browseByCategoryView = new HeadOutdoors.Views.BrowseCategoryIndex({
+      collection: queriedActivities
+    });
+
+    var router = this;
+    categoryLinks.fetch({ data: $.param({ category_id: id }),
+      success: function(links) {
+        links.each(function(link) {
+          var activity = new HeadOutdoors.Models.Activity({
+            id: link.get('activity_id')
+          });
+          activity.fetch();
+          queriedActivities.add(activity);
+        });
+      }
+    });
+
+    this._swap(browseByCategoryView);
+  },
+
+  browseByCategories: function() {
+    var allCategories = new HeadOutdoors.Collections.Categories();
+    var browseByCategoriesView = new HeadOutdoors.Views.BrowseByCategories({
+      collection: allCategories
+    });
+
+    allCategories.fetch();
+    this._swap(browseByCategoriesView);
+  },
+
   browseByCity: function(city) {
-    var queriedActivites = new HeadOutdoors.Collections.SearchResults();
+    var queriedActivities = new HeadOutdoors.Collections.SearchResults();
     var browseCityIndexView = new HeadOutdoors.Views.BrowseCityIndex({
       city: city,
-      collection: queriedActivites
+      collection: queriedActivities
     });
-    
-    queriedActivites.fetch({ data: $.param({ city: city }) });
+
+    queriedActivities.fetch({ data: $.param({ city: city }) });
     this._swap(browseCityIndexView);
   },
 

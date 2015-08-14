@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     resources :addresses, only: [:create, :destroy, :show, :index]
     get 'cities', to: 'cities#unique_cities'
     resources :searches, only: [:index]
-    resources :categories, only: [:create]
-    resources :category_links, only: [:create]
+    resources :categories, only: [:create, :index]
+    resources :category_links, only: [:create, :index]
   end
 
   get '*a' => redirect('/')
