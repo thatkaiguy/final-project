@@ -1,6 +1,7 @@
 class Api::CategoriesController < ApplicationController
   def create
-    if @category = Category.find_or_create(category_params)
+    @category = Category.where(category_params).first_or_create
+    if @category && @category.errors.full_messages.empty?
       render json: @category
     else
       render json: @category.errors.full_messages, status: :unprocessable_entity

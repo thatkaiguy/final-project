@@ -48,15 +48,20 @@ HeadOutdoors.Views.ActivityForm = Backbone.CompositeView.extend({
         activity.save({}, {
           success: function(activity) {
             categoriesJSON.forEach(function(cat_str) {
-              debugger;
               var category = new HeadOutdoors.Models.Category({
                 label: cat_str
               });
 
               category.save({}, {
-                success: function() {
+                success: function(category) {
                   // save success create link object
+                  var categoryLink = new HeadOutdoors.Models.CategoryLink({
+                    activity_id: activity.id,
+                    category_id: category.id
+                  });
                   debugger
+
+                  categoryLink.save();
                 }
               })
             });

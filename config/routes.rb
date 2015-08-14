@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get 'cities', to: 'cities#unique_cities'
     resources :searches, only: [:index]
     resources :categories, only: [:create]
+    resources :category_links, only: [:create]
   end
 
   get '*a' => redirect('/')
