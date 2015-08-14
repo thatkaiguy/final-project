@@ -12,7 +12,7 @@
 #
 
 class Review < ActiveRecord::Base
-  before_save :set_defaults
+  after_initialize :set_defaults
 
   belongs_to :author,
   foreign_key: :author_id,

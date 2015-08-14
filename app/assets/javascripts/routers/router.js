@@ -16,16 +16,13 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
   },
 
   browseByCategory: function(id) {
-    debugger;
     var categoryLinks = new HeadOutdoors.Collections.CategoryLinks();
     var queriedActivities = new HeadOutdoors.Collections.Activities();
 
-    this.activities.reset();
     var browseByCategoryView = new HeadOutdoors.Views.BrowseCategoryIndex({
       collection: queriedActivities
     });
 
-    var router = this;
     categoryLinks.fetch({ data: $.param({ category_id: id }),
       success: function(links) {
         links.each(function(link) {

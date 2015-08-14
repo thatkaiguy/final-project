@@ -15,9 +15,9 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
 
   addReviewsIndexSubview: function() {
     var reviewsIndexView = new HeadOutdoors.Views.ReviewsIndex({
-      collection: this.model.reviews()
+      collection: this.model.reviews(),
+      activity: this.model
     });
-    this.addSubview('div.reviews-index', reviewsIndexView);
+    this.addSubview('.reviews-index', reviewsIndexView);
   }
-
 });
