@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializejson
-//= require jquery.rateit.min
+//= require jquery.rateit
 //= require underscore
 //= require bootstrap
 //= require bootstrap-tagsinput
