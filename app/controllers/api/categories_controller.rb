@@ -1,8 +1,6 @@
 class Api::CategoriesController < ApplicationController
   def create
-    fail
-    @category = Category.new(category_params)
-    if @category.save
+    if @category = Category.find_or_create(category_params)
       render json: @category
     else
       render json: @category.errors.full_messages, status: :unprocessable_entity
