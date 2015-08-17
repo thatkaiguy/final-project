@@ -6,6 +6,10 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
     this.addReviewsIndexSubview();
   },
 
+  events: {
+    'click button.book-activity' : 'bookActivity'
+  },
+
   render: function(){
     var content = this.template({ activity: this.model });
     this.$el.html(content);
@@ -19,5 +23,10 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
       activity: this.model
     });
     this.addSubview('.reviews-index', reviewsIndexView);
+  },
+
+  bookActivity: function() {
+    // get current user
+    // create record in booked activity table
   }
 });

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814224903) do
+ActiveRecord::Schema.define(version: 20150817034803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20150814224903) do
     t.string   "city",        null: false
     t.string   "state",       null: false
     t.string   "postal_code", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "booked_activities", force: :cascade do |t|
+    t.integer  "customer_id", null: false
+    t.datetime "date",        null: false
+    t.integer  "activity_id", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -76,6 +84,8 @@ ActiveRecord::Schema.define(version: 20150814224903) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
 
+  add_foreign_key "booked_activities", "activities"
+  add_foreign_key "booked_activities", "users", column: "customer_id"
   add_foreign_key "category_links", "activities"
   add_foreign_key "category_links", "categories"
   add_foreign_key "reviews", "users", column: "author_id"
