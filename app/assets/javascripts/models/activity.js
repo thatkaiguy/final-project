@@ -14,5 +14,12 @@ HeadOutdoors.Models.Activity = Backbone.Model.extend({
       this._reviews = new HeadOutdoors.Collections.Reviews([], {activity: this});
     }
     return this._reviews
+  },
+
+  bookedActivityLinks: function() {
+    if (!this._bookedActivityLinks) {
+      this._bookedActivityLinks = new HeadOutdoors.Collections.BookedActivities();
+    }
+    return this._bookedActivityLinks;
   }
 });

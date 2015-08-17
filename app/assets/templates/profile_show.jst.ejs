@@ -1,8 +1,10 @@
 <p>
-  <%= HeadOutdoors.CURRENT_USER.email %>
+  Hi, <%= HeadOutdoors.CURRENT_USER.email %>!
 </p>
 
 Booked Activities
 <ul class="user-booked-activities">
-
+  <% user.bookedActivities().each(function(activity) { %>
+    <li>Title: <%= activity.escape('title') %></li>
+  <% }); %>
 </ul>

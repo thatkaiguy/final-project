@@ -1,6 +1,6 @@
 class Api::BookedActivitiesController < ApplicationController
   def create
-    @booked_activity = current_user.booked_activities.new(booked_activity_params)
+    @booked_activity = current_user.booked_activity_links.new(booked_activity_params)
     if @booked_activity.save
       render json: @booked_activity
     else

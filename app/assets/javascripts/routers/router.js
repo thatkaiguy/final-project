@@ -8,7 +8,7 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
     'browse/cities/:city' : 'browseByCity',
     'browse/categories' : 'browseByCategories',
     'browse/categories/:id' : 'browseByCategory',
-    'user/:id' : 'showProfile'
+    'users/:id' : 'showProfile'
   },
 
   initialize: function(options) {
@@ -17,7 +17,13 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
   },
 
   showProfile: function(id) {
+    var user = new HeadOutdoors.Models.User({ id: id });
+    var showProfileView = new HeadOutdoors.Views.ProfileShow({
+      model: user
+    });
 
+    user.fetch();
+    this._swap(showProfileView);
   },
 
   browseByCategory: function(id) {
