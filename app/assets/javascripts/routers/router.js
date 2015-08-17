@@ -16,7 +16,7 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
     this.activities = new HeadOutdoors.Collections.Activities();
   },
 
-  show_profile: function(id) {
+  showProfile: function(id) {
 
   },
 

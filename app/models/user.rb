@@ -21,15 +21,19 @@ class User < ActiveRecord::Base
   foreign_key: :author_id,
   class_name: :Review
 
-  has_many :booked_activities,
+  has_many :booked_activity_links,
   foreign_key: :customer_id,
   class_name: :BookedActivity
+
+  has_many :booked_activities,
+  through: :booked_activity_links,
+  source: :activity
 
   validates :email, presence: true, uniqueness: true
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  attr_accessor :password
+  attr_reader :password
 
   def self.find_by_credentials(email, password)
     found_user = User.find_by(email: email)
