@@ -7,12 +7,17 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
     'browse/cities' : 'browseByCities',
     'browse/cities/:city' : 'browseByCity',
     'browse/categories' : 'browseByCategories',
-    'browse/categories/:id' : 'browseByCategory'
+    'browse/categories/:id' : 'browseByCategory',
+    'user/:id' : 'showProfile'
   },
 
   initialize: function(options) {
     this.$rootEl = options.$rootEl;
     this.activities = new HeadOutdoors.Collections.Activities();
+  },
+
+  show_profile: function(id) {
+
   },
 
   browseByCategory: function(id) {

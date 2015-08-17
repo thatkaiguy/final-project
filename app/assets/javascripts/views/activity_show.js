@@ -34,11 +34,9 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
     e.preventDefault();
 
     if (confirm('I want to book this activity!')) {
-      // save booked activity
       var frmJSON = $(e.currentTarget).serializeJSON();
-      debugger;
       var bookedActivity = new HeadOutdoors.Models.BookedActivity();
-      // add activity id to frmJSON
+
       bookedActivity.save(frmJSON, {
         success: function() {
           alert('You have successfully booked this activity!');
@@ -47,6 +45,5 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
     } else {
       // oops
     }
-    // create record in booked activity table
   }
 });
