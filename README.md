@@ -1,8 +1,8 @@
 # Head Outdoors
 
-[Heroku link][heroku]
+[Link][link]
 
-[heroku]: http://headoutdoors.herokuapp.com
+[link]: http://www.headoutdoors.me
 
 ## Minimum Viable Product
 Head Outdoors is a Viator inspired site with a focus on outdoor trips
