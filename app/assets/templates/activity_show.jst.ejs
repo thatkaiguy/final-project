@@ -5,10 +5,28 @@
 <p>
   <%= activity.escape('description') %>
 </p>
+<!-- Book Activity form TODO split this out? -->
+<form class="book-activity" role="form">
+  <input type="hidden"
+         name="booked_activity[activity_id]"
+         value="<%= activity.escape('id') %>">
 
-<button type="button"
-        name="button"
-        class="book-activity">Book!</button>
+  <div class="form-group">
+    <p>
+      Date: <input type="text" id="datepicker" name="booked_activity[date]">
+    </p>
+  </div>
+
+  <div class="form-group">
+    <label for="spinner">Number in party:</label>
+    <input id="spinner" name="booked_activity[party_size]" value="1">
+  </div>
+
+  <input type="submit"
+          name="button"
+          class="book-activity"
+          value="Book!" />
+</form>
 
 <div class="reviews-index">
 

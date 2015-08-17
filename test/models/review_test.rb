@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  author_id   :integer          not null
-#  num_stars   :integer          not null
+#  num_stars   :decimal(, )      not null
 #  body        :text
 #  activity_id :integer          not null
 #  created_at  :datetime         not null

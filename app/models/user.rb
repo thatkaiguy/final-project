@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
   foreign_key: :author_id,
   class_name: :Review
 
+  has_many :booked_activities,
+  foreign_key: :customer_id,
+  class_name: :BookedActivity
+
   validates :email, presence: true, uniqueness: true
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }

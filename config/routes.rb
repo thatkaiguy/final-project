@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :searches, only: [:index]
     resources :categories, only: [:create, :index]
     resources :category_links, only: [:create, :index]
+    resources :booked_activities, only: [:create, :index]
   end
 
   get '*a' => redirect('/')
