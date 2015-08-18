@@ -30,7 +30,8 @@ gem 'backbone-on-rails'
 gem 'ejs'
 gem 'bootstrap-sass'
 gem 'validates_email_format_of'
-
+gem 'cloudinary'
+gem 'figaro'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
