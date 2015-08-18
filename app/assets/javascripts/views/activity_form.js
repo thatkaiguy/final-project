@@ -9,7 +9,16 @@ HeadOutdoors.Views.ActivityForm = Backbone.CompositeView.extend({
   },
 
   events: {
-    "submit .activity-form" : "saveActivity"
+    "submit .activity-form" : "saveActivity",
+    "click button.upload-image" : "uploadImage"
+  },
+
+  uploadImage: function(e) {
+    e.preventDefault();
+    cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function(error, result){
+      debugger;
+      console.log(error, result);
+    });
   },
 
   render: function(){
