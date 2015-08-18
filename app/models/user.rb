@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
   source: :activity
 
   validates :email, presence: true, uniqueness: true
+  validates_email_format_of :email, :message => 'Email is in an invalid format.'
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
