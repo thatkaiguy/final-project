@@ -15,22 +15,12 @@
     <textarea id="activity_desc"
               name="activity[description]"
               class="form-control"
-              rows="8" cols="40">
-      <%= activity.escape('description') %>
-    </textarea>
+              rows="8" cols="40"><%= activity.escape('description') %></textarea>
   </div>
 
   <div class="form-group">
-    <label for="activity_img_url">Image Link</label>
-    <input type="text"
-           id="activity_img_url"
-           name="activity[img_url]"
-           class="form-control"
-           value="<%= activity.escape('img_url') %>">
-  </div>
-
-  <div class="form-group">
-    <button class="upload-image" type="button" name="button">Upload image
+    <button class="upload-image btn btn-default"
+            type="button" name="button">Upload image
     </button>
   </div>
 

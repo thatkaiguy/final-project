@@ -1,11 +1,9 @@
 HeadOutdoors.Views.ActivityForm = Backbone.CompositeView.extend({
   template: JST['activity_form'],
-  //
-  // tagName = 'form',
-  //
-  // className = 'activity-form',
+
   initialize: function() {
     this.addAddressFormSubview();
+    this.model = new HeadOutdoors.Models.Activity();
   },
 
   events: {
@@ -15,9 +13,16 @@ HeadOutdoors.Views.ActivityForm = Backbone.CompositeView.extend({
 
   uploadImage: function(e) {
     e.preventDefault();
+    var view = this;
+
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function(error, result){
+      var resized = result[0].eager[0];
+      var original = result[0];
       debugger;
-      console.log(error, result);
+      view.model.set({
+        "img_url": resized.url,
+        "img_url_full_size": original.url
+      })
     });
   },
 
@@ -45,16 +50,17 @@ HeadOutdoors.Views.ActivityForm = Backbone.CompositeView.extend({
     var addressJSON = $frmAddress.serializeJSON();
     var activityJSON = $frmActivity.serializeJSON();
     var categoriesJSON = $frmActivity.find('#activity_category').tagsinput('items');
+    var view = this;
 
     debugger
     // save address - on success save activity - on success navigate to activity
     var address = new HeadOutdoors.Models.Address(addressJSON);
     address.save({}, {
       success: function(address) {
-        activityJSON.activity.address_id = address.id;
-        var activity = new HeadOutdoors.Models.Activity(activityJSON);
+        view.model.set({ address_id: address.id });
+        view.model.set(activityJSON.activity);
 
-        activity.save({}, {
+        view.model.save({}, {
           success: function(activity) {
             categoriesJSON.forEach(function(cat_str) {
               var category = new HeadOutdoors.Models.Category({
@@ -63,18 +69,16 @@ HeadOutdoors.Views.ActivityForm = Backbone.CompositeView.extend({
 
               category.save({}, {
                 success: function(category) {
-                  // save success create link object
                   var categoryLink = new HeadOutdoors.Models.CategoryLink({
                     activity_id: activity.id,
                     category_id: category.id
                   });
-                  debugger
-
                   categoryLink.save();
                 }
               })
             });
-            Backbone.history.navigate('#/activities/' + activity.id, {trigger: true})
+            Backbone.history
+              .navigate('#/activities/' + activity.id, {trigger: true})
           }
         });
       }

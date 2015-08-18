@@ -21,5 +21,9 @@ HeadOutdoors.Models.Activity = Backbone.Model.extend({
       this._bookedActivityLinks = new HeadOutdoors.Collections.BookedActivities();
     }
     return this._bookedActivityLinks;
+  },
+
+  toJSON: function() {
+    return { activity: _.clone( this.attributes ) }
   }
 });
