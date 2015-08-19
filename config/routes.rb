@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:create, :index]
     resources :category_links, only: [:create, :index]
     resources :booked_activities, only: [:create, :index]
-    resources :users, only: [:show]
+    resources :users, only: [:show, :update]
   end
 
   get '*a' => redirect('/')

@@ -3,6 +3,7 @@ HeadOutdoors.Models.Activity = Backbone.Model.extend({
 
   parse: function(payload) {
     if (payload.reviews) {
+      this.reviews().reset();
       this.reviews().set(payload.reviews);
       delete payload.reviews;
     }

@@ -1,10 +1,149 @@
-<p>
-  Hi, <%= HeadOutdoors.CURRENT_USER.email %>!
-</p>
 
-Booked Activities
-<ul class="user-booked-activities">
-  <% user.bookedActivities().each(function(activity) { %>
-    <li>Title: <%= activity.escape('title') %></li>
-  <% }); %>
-</ul>
+<hr>
+<div class="container">
+    <div class="row">
+  		<div class="col-sm-10"><h1>Hi, <%= HeadOutdoors.CURRENT_USER.email %>!
+      </h1></div>
+
+    </div>
+    <div class="row">
+  		<div class="col-sm-3"><!--left col-->
+          <ul class="list-group">
+            <li class="list-group-item text-muted">Profile</li>
+            <li class="list-group-item text-right">
+              <span class="pull-left"><strong>Joined</strong></span>
+              <%= (new Date(user.escape('created_at'))).toLocaleDateString() %>
+            </li>
+            <li class="list-group-item text-right">
+              <span class="pull-left"><strong>Name</strong></span>
+              <% if (user.escape('fname') || user.escape('lname')) { %>
+                  <%= user.escape('fname') + ' ' + user.escape('lname') %>
+              <% } else { %>
+                  None
+              <% } %>
+            </li>
+          </ul>
+        </div><!--/col-3-->
+    	<div class="col-sm-9">
+
+          <ul class="nav nav-tabs" id="myTab">
+            <li class="active"><a href="#activities" data-toggle="tab">Activities</a></li>
+            <li><a href="#settings" data-toggle="tab">Settings</a></li>
+          </ul>
+
+          <div class="tab-content">
+             <div class="tab-pane active" id="activities">
+
+               <h2></h2>
+
+               <ul class="list-group">
+                  <li class="list-group-item text-muted">Booked Activities</li>
+                  <% if (user.bookedActivities().length < 1) { %>
+                      <li class="list-group-item text-right">
+                        <p class="pull-left">
+                          You have no activities booked.
+                        </p>.
+                      </li>
+                  <% } %>
+                  <% user.bookedActivities().each(function(activity) { %>
+                    <% activity.bookedActivityLinks().each(function(link) { %>
+                      <li class="list-group-item text-right">
+                        <a href="<%='#/activities/' + activity.id%>"
+                           class="pull-left">
+                          <%= activity.escape('title') %>
+                        </a>
+
+                        <%= (new Date(link.escape('date'))).toLocaleDateString() %>
+                      </li>
+                    <% }) %>
+                  <% }); %>
+
+
+                </ul>
+
+             </div><!--/tab-pane-->
+             <div class="tab-pane" id="settings">
+                  <hr>
+                  <form class="form" id="registrationForm" role="form">
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                              <label for="first_name"><h4>First name</h4></label>
+                              <input type="text"
+                                     class="form-control"
+                                     name="user[fname]"
+                                     id="first_name"
+                                     title="enter your first name if any."
+                                     value="<%= user.escape('fname') %>">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                            <label for="last_name"><h4>Last name</h4></label>
+                              <input type="text"
+                              class="form-control"
+                              name="user[lname]"
+                              id="last_name"
+                              title="enter your last name if any."
+                              value="<%= user.escape('lname') %>">
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                              <label for="phone"><h4>Phone</h4></label>
+                              <input type="text"
+                                     class="form-control"
+                                     name="user[phone1]" id="phone"
+                                     title="enter your phone number if any."
+                                     value="<%= user.escape('phone1') %>">
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                             <label for="mobile"><h4>Mobile</h4></label>
+                              <input type="text"
+                                     class="form-control"
+                                     name="user[phone2]" id="mobile"
+                                     title="enter your mobile number if any."
+                                     value="<%= user.escape('phone2') %>">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-xs-6">
+                          <label for="email"><h4>Email</h4></label>
+                          <input type="email"
+                                 class="form-control"
+                                 name="email" id="email"
+                                 title="enter your email."
+                                 value="<%= user.escape('email') %>">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                            <label for="location"><h4>Location</h4></label>
+                            <input type="location"
+                                   class="form-control" id="location"
+                                   name="user[location]"
+                                   title="enter a location"
+                                   value="<%= user.escape('location') %>">
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                         <div class="col-xs-12">
+                            <br>
+                          	<input class="save btn btn-m btn-success"
+                                   type="submit"
+                                   value="Save"></input>
+                          </div>
+                      </div>
+              	</form>
+              </div>
+
+              </div><!--/tab-pane-->
+          </div><!--/tab-content-->
+
+        </div><!--/col-9-->
+    </div><!--/row-->

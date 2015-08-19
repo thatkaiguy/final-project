@@ -32,7 +32,9 @@ Activity.create!({ creator_id: 2,
                      full-day adventure.
                    DESC
                    img_url: "http://tinyurl.com/oa49w4u",
-                   capacity: 30 })
+                   img_url_full_size: "http://tinyurl.com/oa49w4u",
+                   capacity: 30,
+                   price: 44 })
 
  CategoryLink.create!({ category_id: 1, activity_id: 1 })
  CategoryLink.create!({ category_id: 5, activity_id: 1 })
@@ -49,7 +51,9 @@ Activity.create!({ creator_id: 2,
                       in California.
                     DESC
                     img_url: "http://tinyurl.com/q7u4hq3",
-                    capacity: 30 })
+                    img_url_full_size: "http://tinyurl.com/q7u4hq3",
+                    capacity: 30,
+                    price: 25 })
 
 CategoryLink.create!({ category_id: 2, activity_id: 2 })
 
@@ -67,7 +71,9 @@ Activity.create!({ creator_id: 2,
                      wildlife.
                    DESC
                    img_url: "http://tinyurl.com/owbbw2y",
-                   capacity: 30 })
+                   img_url_full_size: "http://tinyurl.com/owbbw2y",
+                   capacity: 30,
+                   price: 60 })
 
 CategoryLink.create!({ category_id: 3, activity_id: 3 })
 CategoryLink.create!({ category_id: 1, activity_id: 3 })
@@ -88,7 +94,9 @@ Activity.create!({ creator_id: 1,
                      the day.
                    DESC
                    img_url: "http://tinyurl.com/o9e5pr9",
-                   capacity: 30 })
+                   img_url_full_size: "http://tinyurl.com/o9e5pr9",
+                   capacity: 30,
+                   price: 50 })
 
  CategoryLink.create!({ category_id: 2, activity_id: 4 })
 
@@ -104,7 +112,9 @@ Activity.create!({ creator_id: 1,
                       Range’s stunning mountain landscape.
                     DESC
                     img_url: "http://tinyurl.com/p7lxkau",
-                    capacity: 30 })
+                    img_url_full_size: "http://tinyurl.com/p7lxkau",
+                    capacity: 30,
+                    price: 150 })
 
 CategoryLink.create!({ category_id: 4, activity_id: 5 })
 

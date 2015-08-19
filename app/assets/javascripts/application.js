@@ -15,7 +15,9 @@
 //= require jquery.serializejson
 //= require jquery.rateit
 //= require jquery-ui
+//= require jquery.ui.spinner
 //= require underscore
+//= require underscore.string.min
 //= require bootstrap
 //= require bootstrap-tagsinput
 //= require backbone

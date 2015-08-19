@@ -15,8 +15,9 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.attachSubviews();
     this.$el.find('#datepicker').datepicker();
-    this.$el.find( "#spinner" ).spinner({
-      icons: {up:"tuparrow",down:"tdownarrow"}
+    this.$el.find( "#party-size" ).spinner({
+      min: 0,
+      alignment: 'vertical'
     });
 
     return this;

@@ -1,4 +1,5 @@
-json.extract! @activity, :id, :title, :description, :img_url, :capacity
+json.extract! @activity, :id, :title, :description, :img_url,
+  :capacity, :price, :img_url_full_size
 # TODO extract properties from associations
 
 json.reviews @activity.reviews do |review|

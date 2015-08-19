@@ -1,4 +1,5 @@
-json.extract! @user, :id, :email
+json.extract! @user,
+  :id, :email, :created_at, :fname, :lname, :phone1, :phone2, :location
 
 json.booked_activities do
   json.array! @user.booked_activity_links do |booked_activity_link|
