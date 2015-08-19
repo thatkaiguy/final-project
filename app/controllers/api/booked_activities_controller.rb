@@ -4,7 +4,7 @@ class Api::BookedActivitiesController < ApplicationController
     if @booked_activity.save
       render json: @booked_activity
     else
-      render json: @booked_activity.errors.full_messages,
+      render json: { errors: @booked_activity.errors.full_messages },
         status: :unprocessable_entity
     end
   end
@@ -17,7 +17,7 @@ class Api::BookedActivitiesController < ApplicationController
   private
 
   def booked_activity_params
-    if params[:booked_activity][:date]
+    unless params[:booked_activity][:date].empty?
       date_str = params[:booked_activity][:date]
       params[:booked_activity][:date] = DateTime.strptime(date_str, "%m/%d/%Y")
     end
