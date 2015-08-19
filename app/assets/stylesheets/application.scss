@@ -79,10 +79,32 @@ body {
   width: 400px;
   position: absolute;
   bottom: 5px;
+
+  .input-m {
+    width: auto;
+  }
+
+  .input-group .input-m:first-child {
+    border-right: 0px;
+  }
+
+  .input-group-btn {
+    float: left;
+
+    .btn {
+      height: 34px;
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+  }
 }
 
 .head-outdoors-app {
-  padding-top: 50px;
+  padding-top: 30px;
+}
+
+.abs-pos-container {
+  margin-top: -30px;
 }
 
 .inline {
@@ -94,4 +116,8 @@ body {
 }
  #datepicker{
    width: 100px;
+ }
+
+ .caption {
+   height: 150px;
  }

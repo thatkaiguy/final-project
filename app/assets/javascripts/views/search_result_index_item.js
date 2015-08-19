@@ -7,7 +7,7 @@ HeadOutdoors.Views.SearchResultIndexItem = Backbone.CompositeView.extend({
 
   tagName: 'div',
 
-  className: 'search-result-index-item',
+  className: 'search-result-index-item col-sm-6 col-md-3',
 
   render: function() {
     var content = this.template({ activity: this.model });
