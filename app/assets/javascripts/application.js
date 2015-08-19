@@ -13,9 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializejson
-//= require jquery.rateit
 //= require jquery-ui
 //= require jquery.ui.spinner
+//= require jquery.raty
 //= require underscore
 //= require underscore.string.min
 //= require bootstrap

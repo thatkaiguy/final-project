@@ -13,7 +13,6 @@ HeadOutdoors.Views.ReviewForm = Backbone.CompositeView.extend({
     var content = this.template({ review: this.model });
     this.$el.html(content);
     this.attachSubviews(); //no subviews yet
-    // this.$el.find('.rateit').rateit();
     return this;
   },
 

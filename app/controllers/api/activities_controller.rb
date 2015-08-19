@@ -16,7 +16,7 @@ class Api::ActivitiesController < ApplicationController
   end
 
   def show
-    @activity = Activity.includes(:reviews).find(params[:id])
+    @activity = Activity.includes(reviews: :author).find(params[:id])
     render :show
   end
 

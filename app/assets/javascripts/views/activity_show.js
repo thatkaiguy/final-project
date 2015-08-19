@@ -19,7 +19,7 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
       min: 0,
       alignment: 'vertical'
     });
-
+    $('#raty').raty({ scoreName: 'review[num_stars]'});
     return this;
   },
 

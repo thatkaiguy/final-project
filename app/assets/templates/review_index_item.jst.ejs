@@ -1,3 +1,12 @@
-<p>
-  <%= review.escape('body') %>
-</p>
+<div class="col-md-12">
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+    <%= review.author().escape('email').split('@')[0] %>
+    <span class="pull-right">10 days ago</span>
+    <p>
+      <%= review.escape('body') %>
+    </p>
+</div>
