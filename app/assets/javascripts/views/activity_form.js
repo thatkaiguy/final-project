@@ -52,7 +52,6 @@ HeadOutdoors.Views.ActivityForm = Backbone.CompositeView.extend({
     var categoriesJSON = $frmActivity.find('#activity_category').tagsinput('items');
     var view = this;
 
-    debugger
     // save address - on success save activity - on success navigate to activity
     var address = new HeadOutdoors.Models.Address(addressJSON);
     address.save({}, {

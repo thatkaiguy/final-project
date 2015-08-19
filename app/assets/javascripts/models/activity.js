@@ -6,7 +6,8 @@ HeadOutdoors.Models.Activity = Backbone.Model.extend({
       this.reviews().reset();
       var model = this;
       payload.reviews.forEach(function(review) {
-        model.reviews().add(new HeadOutdoors.Models.Review(review, { parse: true }))
+        model.reviews().add(new HeadOutdoors.Models.Review(
+          review, { parse: true }))
       });
       delete payload.reviews;
     }

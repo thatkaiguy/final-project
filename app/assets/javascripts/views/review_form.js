@@ -20,10 +20,10 @@ HeadOutdoors.Views.ReviewForm = Backbone.CompositeView.extend({
     e.preventDefault();
 
     var formJSON = $(e.currentTarget).serializeJSON();
-    formJSON.review.activity_id = this.activity.id;
-
     var review = new HeadOutdoors.Models.Review();
     var view = this;
+
+    formJSON.review.activity_id = this.activity.id;
     review.save(formJSON, {
       success: function(savedReview){
         view.collection.add(savedReview);

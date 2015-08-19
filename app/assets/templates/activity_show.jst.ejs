@@ -18,17 +18,14 @@
                         </h4>
                         <p><%= activity.escape('description') %></p>
                     </div>
-                    <!-- <div class="ratings">
-                        <p class="pull-right">3 reviews</p>
-                        <p>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            4.0 stars
+                    <div class="ratings">
+                        <p class="pull-right">
+                          <%= activity.reviews().length %> reviews
                         </p>
-                    </div> -->
+                        <p>
+                          <div class="raty-avg-read-only"></div>
+                        </p>
+                    </div>
                 </div>
 
                 <div class="reviews-index"></div>

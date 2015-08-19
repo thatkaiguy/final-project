@@ -20,6 +20,10 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
       alignment: 'vertical'
     });
     $('#raty').raty({ scoreName: 'review[num_stars]'});
+    this.$el.find('.raty-avg-read-only').raty({
+      readOnly: true,
+      score: this.model.reviews().avgRating()
+    });
     return this;
   },
 

@@ -7,6 +7,7 @@
            id="activity_title"
            name="activity[title]"
            class="form-control"
+           required
            value="<%= activity.escape('title') %>">
   </div>
 
@@ -15,6 +16,7 @@
     <textarea id="activity_desc"
               name="activity[description]"
               class="form-control"
+              required
               rows="8" cols="40"><%= activity.escape('description') %></textarea>
   </div>
 
@@ -31,6 +33,7 @@
            name="category"
            placeholder="type and press enter"
            data-role="tagsinput"
+           required
            class="form-control">
   </div>
 
@@ -41,6 +44,7 @@
             id="activity_capacity"
             name="activity[capacity]"
             class="form-control"
+            required
             value="<%= activity.escape('capacity') %>">
   </div>
 
@@ -50,6 +54,7 @@
             id="activity_price"
             name="activity[price]"
             class="form-control"
+            required
             value="<%= activity.escape('price') %>">
   </div>
 

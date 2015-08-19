@@ -1,11 +1,10 @@
+<hr>
 <div class="col-md-12">
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="glyphicon glyphicon-star-empty"></span>
+    <div class="raty-read-only"></div>
     <%= review.author().escape('email').split('@')[0] %>
-    <span class="pull-right">10 days ago</span>
+    <span class="pull-right">
+      <%= (new Date(review.escape('created_at'))).toLocaleDateString() %>
+    </span>
     <p>
       <%= review.escape('body') %>
     </p>

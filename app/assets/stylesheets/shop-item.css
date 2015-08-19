@@ -9,7 +9,11 @@ body {
 }
 
 .thumbnail img {
-    width: 100%;
+  width: 100%;
+}
+
+.raty-avg-read-only img {
+  width: auto;
 }
 
 .ratings {
