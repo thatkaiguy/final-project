@@ -1,8 +1,10 @@
 HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
   template: JST['activity_show'],
 
-  initialize: function() {
+  initialize: function(options) {
+    this.user = options.user;
     this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.user, 'sync', this.render);
     this.addReviewsIndexSubview();
   },
 
@@ -19,7 +21,7 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
       min: 0,
       alignment: 'vertical'
     });
-    $('#raty').raty({ scoreName: 'review[num_stars]'});
+    // $('#raty').raty({ scoreName: 'review[num_stars]'});
     this.$el.find('.raty-avg-read-only').raty({
       readOnly: true,
       score: this.model.reviews().avgRating()
@@ -30,7 +32,8 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
   addReviewsIndexSubview: function() {
     var reviewsIndexView = new HeadOutdoors.Views.ReviewsIndex({
       collection: this.model.reviews(),
-      activity: this.model
+      activity: this.model,
+      user: this.user
     });
     this.addSubview('.reviews-index', reviewsIndexView);
   },
@@ -66,6 +69,8 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
               isSuccess: true,
               message: "You have successfully booked this activity!"
             });
+
+          view.user.fetch();
           },
           error: function(bookedActivity, xhr) {
             var errorMsgs = $.parseJSON(xhr.responseText).errors;

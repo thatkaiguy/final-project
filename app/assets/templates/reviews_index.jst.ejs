@@ -1,11 +1,17 @@
-<!-- <ul class="reviews">
-
-</ul> -->
 
 <div class="well container-fluid">
-  <div class="text-right">
-      <a class="leave-review btn btn-success">Leave a Review</a>
-  </div>
+  <% if(user.hasBookedActivity(activity.id)) { %>
+    <div class="text-right">
+        <a class="leave-review btn btn-success">Leave a Review</a>
+    </div>
+  <% } %>
+
+  <% if(reviews.length < 1) { %>
+    <div class="text-left">
+        There are no reviews.
+    </div>
+  <% } %>
+
   <div class="review-form-div"></div>
 
   <div class="reviews"></div>

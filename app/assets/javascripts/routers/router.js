@@ -14,15 +14,15 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
   initialize: function(options) {
     this.$rootEl = options.$rootEl;
     this.activities = new HeadOutdoors.Collections.Activities();
+    this.user = new HeadOutdoors.Models.User({ id: HeadOutdoors.CURRENT_USER.id });
   },
 
-  showProfile: function(id) {
-    var user = new HeadOutdoors.Models.User({ id: id });
+  showProfile: function() {
     var showProfileView = new HeadOutdoors.Views.ProfileShow({
-      model: user
+      model: this.user
     });
 
-    user.fetch();
+    this.user.fetch();
     this._swap(showProfileView);
   },
 
@@ -99,10 +99,12 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
   showActivity: function(id) {
     var activity = new HeadOutdoors.Models.Activity({ id: id });
     var activityShowForm = new HeadOutdoors.Views.ActivityShow({
-      model: activity
+      model: activity,
+      user: this.user
     });
 
     activity.fetch();
+    this.user.fetch();
     this._swap(activityShowForm);
   },
 

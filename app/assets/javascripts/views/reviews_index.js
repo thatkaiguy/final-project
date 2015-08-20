@@ -3,7 +3,9 @@ HeadOutdoors.Views.ReviewsIndex = Backbone.CompositeView.extend({
 
   initialize: function(options) {
     this.activity = options.activity;
+    this.user = options.user;
     this.listenTo(this.collection, 'add', this.addReviewIndexItemSubview);
+    this.listenTo(this.user, 'sync', this.render);
     this.collection.each(this.addReviewIndexItemSubview.bind(this));
   },
 
@@ -12,9 +14,14 @@ HeadOutdoors.Views.ReviewsIndex = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    var content = this.template();
+    var content = this.template({
+      user: this.user,
+      activity: this.activity,
+      reviews: this.collection
+    });
     this.$el.html(content);
     this.attachSubviews();
+    this.$el.find('#raty').raty({ scoreName: 'review[num_stars]'});
     return this;
   },
 
@@ -27,7 +34,7 @@ HeadOutdoors.Views.ReviewsIndex = Backbone.CompositeView.extend({
 
   addReviewFormSubview: function(e) {
     e.preventDefault();
-    
+
     if (!this._reviewFormView) {
       this._reviewFormView = new HeadOutdoors.Views.ReviewForm({
         model: new HeadOutdoors.Models.Review(),
@@ -36,5 +43,7 @@ HeadOutdoors.Views.ReviewsIndex = Backbone.CompositeView.extend({
       });
       this.addSubview('.review-form-div', this._reviewFormView);
     }
+    // force render to initialize raty
+    this.render();
   }
 });

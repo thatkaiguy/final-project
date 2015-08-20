@@ -31,5 +31,9 @@ HeadOutdoors.Models.User = Backbone.Model.extend({
       this._bookedActivities = new HeadOutdoors.Collections.Activities();
     }
     return this._bookedActivities;
+  },
+
+  hasBookedActivity: function(activity_id){
+    return this.bookedActivities().get(activity_id) !== undefined;
   }
 });
