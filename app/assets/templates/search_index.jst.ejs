@@ -1,28 +1,29 @@
 <div class="search-section">
   <div class="abs-pos-container">
     <div class="row-search">
+
         <form role="form">
-
             <div class="input-group inline">
-               <input type="text"
-                      class="form-control input-m"
-                      placeholder="I want to go.."
-                      name="category">
+              <div id="remote">
+                 <input type="text"
+                        class="form-control input-m categories-typeahead"
+                        placeholder="I want to go.."
+                        name="category">
 
-               <input type="text"
-                      class="form-control input-m"
-                      placeholder="Near.."
-                      name="city">
+                 <input type="text"
+                        class="form-control input-m cities-typeahead"
+                        placeholder="Near.."
+                        name="city">
+              </div>
 
                <span class="input-group-btn">
                  <button class="btn btn-default btn-sm" type="submit">
                    <span class="glyphicon glyphicon-search"></span>
                  </button>
                </span>
-
             </div>
         </form>
-    </div>
 
+    </div>
   </div>
 </div>

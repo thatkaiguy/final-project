@@ -13,6 +13,11 @@ class Api::CategoriesController < ApplicationController
     end
   end
 
+  def by_label
+    @category_labels = Category.all.pluck(:label)
+    render json: @category_labels
+  end
+
   private
 
   def category_params

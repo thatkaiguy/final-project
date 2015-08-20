@@ -17,6 +17,7 @@
 //= require jquery.ui.spinner
 //= require jquery.raty
 //= require bootbox.min
+//= require typeahead.bundle.min
 //= require underscore
 //= require underscore.string.min
 //= require bootstrap
