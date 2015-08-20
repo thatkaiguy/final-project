@@ -9,6 +9,23 @@ HeadOutdoors.Views.ReviewForm = Backbone.CompositeView.extend({
     "submit .review-form" : "saveReview"
   },
 
+  addAlert: function(options) {
+    var $alert = null;
+    var template = null;
+
+    if (options.isSuccess) {
+      template = JST['_success_alert'];
+    } else {
+      template = JST['_error_alert'];
+    }
+
+    if (($alert = this.$el.find('.alert')) && $alert.length) {
+      $alert.remove();
+    }
+
+    this.$el.prepend(template({ msg: options.message }));
+  },
+
   render: function() {
     var content = this.template({ review: this.model });
     this.$el.html(content);
@@ -25,10 +42,19 @@ HeadOutdoors.Views.ReviewForm = Backbone.CompositeView.extend({
 
     formJSON.review.activity_id = this.activity.id;
     review.save(formJSON, {
-      success: function(savedReview){
-        view.collection.add(savedReview);
+      success: function(){
         view.model = new HeadOutdoors.Models.Review();
-        view.remove();
+        view.activity.fetch();
+      },
+      error: function(review, xhr) {
+        debugger;
+        var errorMsgs = $.parseJSON(xhr.responseText).errors;
+        errorMsgs.forEach(function(errorMsg) {
+          view.addAlert({
+            isSuccess: false,
+            message: errorMsg
+          });
+        });
       }
     });
   }

@@ -24,6 +24,11 @@ class Review < ActiveRecord::Base
 
   validates :author, :activity, presence: true
   validates_numericality_of :num_stars, in: 0..5
+  validates :activity_id,
+    uniqueness: {
+      scope: :author_id,
+      message: "has already been reviewed."
+    }
 
   def set_defaults
     self.num_stars ||= 0
