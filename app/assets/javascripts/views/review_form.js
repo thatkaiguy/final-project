@@ -28,7 +28,7 @@ HeadOutdoors.Views.ReviewForm = Backbone.CompositeView.extend({
       success: function(savedReview){
         view.collection.add(savedReview);
         view.model = new HeadOutdoors.Models.Review();
-        view.render();
+        view.remove();
       }
     });
   }
