@@ -8,7 +8,9 @@
          <!-- TODO use max len -->
          <p> <%= activity.escape('description').substr(0, 140) + '...' %></p>
          <p>
-            <a href="<%= '#/activities/' + activity.escape('id') %>" class="btn btn-primary" role="button">
+            <a href="<%= '#/activities/' + activity.escape('id') %>"
+               class="btn btn-primary result-dtl-btn"
+               role="button">
                Details
             </a>
          </p>

@@ -75,7 +75,7 @@ HeadOutdoors.Views.SearchIndex = Backbone.CompositeView.extend({
     var frmJSON = $frm.serializeJSON();
     var queriedActivities = new HeadOutdoors.Collections.SearchResults();
     var view = this;
-    debugger;
+    
     queriedActivities.fetch({ data: $.param( frmJSON ),
       success: function(activities) {
         // hand activities to search results page and navigate there
