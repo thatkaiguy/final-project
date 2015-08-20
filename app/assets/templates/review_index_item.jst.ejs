@@ -1,7 +1,9 @@
 <hr>
 <div class="col-md-12">
     <div class="raty-read-only"></div>
+    <strong>
     <%= review.author().escape('email').split('@')[0] %>
+    </strong>
     <span class="pull-right">
       <%= (new Date(review.escape('created_at'))).toLocaleDateString() %>
     </span>

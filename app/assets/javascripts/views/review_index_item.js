@@ -1,7 +1,7 @@
 HeadOutdoors.Views.ReviewIndexItem = Backbone.CompositeView.extend({
   template: JST['review_index_item'],
 
-  className: 'row',
+  className: 'row container-fluid',
 
   render: function() {
     var content = this.template({ review: this.model });
