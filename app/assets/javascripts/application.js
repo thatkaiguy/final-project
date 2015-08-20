@@ -16,6 +16,7 @@
 //= require jquery-ui
 //= require jquery.ui.spinner
 //= require jquery.raty
+//= require bootbox.min
 //= require underscore
 //= require underscore.string.min
 //= require bootstrap

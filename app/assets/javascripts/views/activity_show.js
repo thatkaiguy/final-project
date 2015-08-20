@@ -54,31 +54,30 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
 
   bookActivity: function(e) {
     e.preventDefault();
+    var view = this;
 
-    if (confirm('I want to book this activity!')) {
-      var frmJSON = $(e.currentTarget).serializeJSON();
-      var bookedActivity = new HeadOutdoors.Models.BookedActivity();
-      var view = this;
-
-      bookedActivity.save(frmJSON, {
-        success: function() {
-          view.addAlert({
-            isSuccess: true,
-            message: "You have successfully booked this activity!"
-          });
-        },
-        error: function(bookedActivity, xhr) {
-          var errorMsgs = $.parseJSON(xhr.responseText).errors;
-          errorMsgs.forEach(function(errorMsg) {
+    bootbox.confirm("Book this activity?", function(result) {
+      if (result) {
+        var frmJSON = $(e.currentTarget).serializeJSON();
+        var bookedActivity = new HeadOutdoors.Models.BookedActivity();
+        bookedActivity.save(frmJSON, {
+          success: function() {
             view.addAlert({
-              isSuccess: false,
-              message: errorMsg
+              isSuccess: true,
+              message: "You have successfully booked this activity!"
             });
-          });
-        }
-      });
-    } else {
-      // oops
-    }
+          },
+          error: function(bookedActivity, xhr) {
+            var errorMsgs = $.parseJSON(xhr.responseText).errors;
+            errorMsgs.forEach(function(errorMsg) {
+              view.addAlert({
+                isSuccess: false,
+                message: errorMsg
+              });
+            });
+          }
+        });
+      }
+    });
   }
 });

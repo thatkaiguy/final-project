@@ -24,6 +24,7 @@ class Api::ActivitiesController < ApplicationController
 
   def activity_params
     params.require(:activity)
-          .permit(:description, :img_url, :capacity, :title, :address_id, :img_url_full_size)
+          .permit(:description, :img_url, :capacity, :title,
+                  :address_id, :img_url_full_size, :price)
   end
 end
