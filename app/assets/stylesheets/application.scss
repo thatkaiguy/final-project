@@ -32,8 +32,10 @@ footer {
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 60px;
+    height: 40px;
     width: 100%;
+    border-top: 4px;
+    border-color: #084f4f;
     background-color: #336666
 }
 
@@ -118,7 +120,7 @@ footer {
 }
 
 .abs-pos-container {
-  margin-top: -30px;
+  margin-top: -49px;
 }
 
 .inline {
@@ -148,6 +150,20 @@ footer {
  .result-dtl-btn {
    position: absolute;
    bottom: 0;
+ }
+
+ #remote {
+   float: left;
+ }
+
+ #remote .twitter-typeahead:first-child input{
+    border-right: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+ }
+
+ .twitter-typeahead {
+   float: left;
  }
 
 // #bootstrap-overrides.head-outdoors-nav {
