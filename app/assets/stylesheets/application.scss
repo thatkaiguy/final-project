@@ -20,19 +20,27 @@
 
 html {
   position: relative;
-  min-height:100%;
+  height: 100%;
 }
 
 body {
-  margin: 0 0 100px;
-  background-color: #eee;
+  margin: 0;
+  background-color: #fff;
+  min-height: 100%;
+  overflow: auto;
+  height: auto;
+}
+
+.app-header {
+  width: 100%;
+  height: 51px;
 }
 
 footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 40px;
+    // position: absolute;
+    // left: 0;
+    // bottom: 0;
+    height: 50px;
     width: 100%;
     border-top: 4px;
     border-color: #084f4f;
@@ -73,11 +81,6 @@ footer {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-.search-section {
-  height: 700px;
-  width: 100%;
-  position: relative;
-}
 
 .abs-pos-container {
   height: 500px;
@@ -94,10 +97,17 @@ footer {
   margin: 0 auto;
   width: 400px;
   position: absolute;
-  bottom: 35px;
+  bottom: 273px;
 
   .input-m {
     width: auto;
+  }
+
+  h5#search-index-banner-text {
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    font-size: 80px;
   }
 
   .input-group .input-m:first-child {
@@ -116,7 +126,9 @@ footer {
 }
 
 .head-outdoors-app {
-  padding-top: 30px;
+  margin-top: 51px;
+  overflow: auto;
+  height: auto;
 }
 
 .abs-pos-container {
@@ -125,6 +137,10 @@ footer {
 
 .inline {
   display: inline-block;
+}
+
+.activity-form-wrapper {
+  overflow: auto;
 }
 
 #party-size{
@@ -156,7 +172,7 @@ footer {
    width: 376px;
    margin: 0 auto;
  }
- 
+
  #remote {
    float: left;
  }
@@ -171,11 +187,33 @@ footer {
    float: left;
  }
 
-// #bootstrap-overrides.head-outdoors-nav {
-//   background-color: #336666;
-//   border-color: #043838;
-// }
-//
-// #bootstrap-overrides.head-outdoors-nav a {
-//   color: #CCCC99;
-// }
+ div#featured-activities-grid {
+  width: 660px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+#featured-activities-grid ul {
+  list-style-type: none;
+}
+
+#featured-activities-grid li img {
+  float: left;
+  margin: 5px;
+  border: 5px solid #333;
+ -moz-transition: all 0.2s ease-in-out;
+ -webkit-transition: all 0.2s ease-in-out;
+ transition: all 0.2s ease-in-out;
+}
+
+#featured-activities-grid li img:hover {
+border: 5px solid #F15123;
+}
+
+#bootstrap-overrides.head-outdoors-nav {
+  box-shadow: 0px 0px 5px 0px #888888;
+}
+
+#bootstrap-overrides.navbar {
+  margin: 0;
+}

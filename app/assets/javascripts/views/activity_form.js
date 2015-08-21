@@ -1,6 +1,8 @@
 HeadOutdoors.Views.ActivityForm = Backbone.CompositeView.extend({
   template: JST['activity_form'],
 
+  className: 'activity-form-wrapper',
+
   initialize: function() {
     this.addAddressFormSubview();
     this.model = new HeadOutdoors.Models.Activity();

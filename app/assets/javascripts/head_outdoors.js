@@ -12,7 +12,7 @@ window.HeadOutdoors = {
       router: router
     });
 
-    $('div.app-header').html(nav.render().$el);
+    $('body').prepend(nav.render().$el);
     Backbone.history.start();
   }
 };
