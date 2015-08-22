@@ -6,8 +6,8 @@
   $(function() {
 
     HeadOutdoors.CURRENT_USER = {
-      email: "<%= current_user.email %>",
-      id: "<%= current_user.id %>"
+      email: "<%= current_user.nil? ? nil : current_user.email %>",
+      id: "<%= current_user.nil? ? nil : current_user.id %>"
     };
 
     HeadOutdoors.initialize();
