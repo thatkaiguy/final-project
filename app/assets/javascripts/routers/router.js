@@ -15,6 +15,7 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
     this.activities = new HeadOutdoors.Collections.Activities();
     this.user = new HeadOutdoors.Models.User({ id: HeadOutdoors.CURRENT_USER.id });
+    this.user.fetch();
   },
 
   showProfile: function() {
@@ -22,7 +23,7 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
       model: this.user
     });
 
-    this.user.fetch();
+    //this.user.fetch();
     this._swap(showProfileView);
   },
 
@@ -104,7 +105,7 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
     });
 
     activity.fetch();
-    this.user.fetch();
+    //this.user.fetch();
     this._swap(activityShowForm);
   },
 

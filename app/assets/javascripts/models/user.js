@@ -5,6 +5,9 @@ HeadOutdoors.Models.User = Backbone.Model.extend({
     var user = this;
 
     if (payload.booked_activities) {
+      if (user.bookedActivities().length){
+        user.resetBookedActivities();
+      }
       payload.booked_activities.forEach(function(bookedActivity) {
         var activityID = bookedActivity.activity.id;
         var activity = user.bookedActivities().get(activityID);
@@ -31,6 +34,10 @@ HeadOutdoors.Models.User = Backbone.Model.extend({
       this._bookedActivities = new HeadOutdoors.Collections.Activities();
     }
     return this._bookedActivities;
+  },
+
+  resetBookedActivities: function() {
+    this._bookedActivities = null;
   },
 
   hasBookedActivity: function(activity_id){

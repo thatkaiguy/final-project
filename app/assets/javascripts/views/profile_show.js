@@ -1,6 +1,8 @@
 HeadOutdoors.Views.ProfileShow = Backbone.CompositeView.extend({
   template: JST['profile_show'],
 
+  className: 'profile-show-wrapper',
+
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
   },

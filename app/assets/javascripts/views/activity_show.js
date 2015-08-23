@@ -8,6 +8,8 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
     this.addReviewsIndexSubview();
   },
 
+  className: 'activity-show-wrapper',
+
   events: {
     'submit form.book-activity' : 'bookActivity'
   },
@@ -68,8 +70,7 @@ HeadOutdoors.Views.ActivityShow = Backbone.CompositeView.extend({
               isSuccess: true,
               message: "You have successfully booked this activity!"
             });
-
-          view.user.fetch();
+            view.user.fetch();
           },
           error: function(bookedActivity, xhr) {
             var errorMsgs = $.parseJSON(xhr.responseText).errors;

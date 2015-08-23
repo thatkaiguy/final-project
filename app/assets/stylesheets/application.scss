@@ -21,11 +21,11 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Sans);
 
 html {
-  position: relative;
   height: 100%;
 }
 
 body {
+  position: relative;
   margin: 0;
   background-color: #fff;
   min-height: 100%;
@@ -47,6 +47,8 @@ footer {
     border-top: 1px solid;
     border-color: #204949;
     background-color: #336666;
+    position: absolute;
+    bottom: 0;
 }
 
 #footer-text {
@@ -138,7 +140,7 @@ footer {
 
 .head-outdoors-app {
   margin-top: 51px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   overflow: auto;
   height: auto;
 }
@@ -149,6 +151,7 @@ footer {
 
 .activity-form-wrapper {
   overflow: auto;
+  margin-bottom: 20px;
 }
 
 #party-size{
@@ -279,6 +282,11 @@ p#search-index-heading-tagline span {
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
 	background: rgba(200, 200, 200, 0.1);
 	transition: 0.5s;
+}
+
+.profile-show-wrapper, .activity-show-wrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 // .btm-barred {
