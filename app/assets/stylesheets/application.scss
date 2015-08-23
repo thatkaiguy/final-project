@@ -263,17 +263,17 @@ p#search-index-heading-tagline span {
     padding:0 10px;
 }
 
-.destacados{
-    padding: 20px 0;
-	text-align: center;
+.featured-activities{
+  padding: 20px 0;
+	text-align: left;
 }
-.destacados > div > div{
+.featured-activities > div > div{
 	padding: 10px;
 	border: 1px solid transparent;
 	border-radius: 4px;
 	transition: 0.2s;
 }
-.destacados > div:hover > div{
+.featured-activities > div:hover > div{
 	margin-top: -10px;
 	border: 1px solid rgb(200, 200, 200);
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;

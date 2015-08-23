@@ -3,15 +3,25 @@ HeadOutdoors.Views.SearchIndex = Backbone.CompositeView.extend({
 
   className: 'search-index-wrapper',
 
+  initialize: function() {
+    this.featuredActivities = new HeadOutdoors.Collections.SearchResults();
+    this.featuredActivities.fetch();
+    this.attachTypeAhead();
+
+    this.listenTo(this.featuredActivities, 'sync', this.render);
+  },
+
   events: {
     "submit div.row-search form" : "sendQuery"
   },
 
   render: function() {
-    var content = this.template();
+    var content = this.template({
+      featuredActivities: this.featuredActivities
+    });
     this.$el.html(content);
     this.attachSubviews();
-    this.attachTypeAhead();
+
     return this;
   },
 

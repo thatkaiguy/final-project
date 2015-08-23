@@ -35,50 +35,18 @@
   <p id='search-index-heading-tagline'><span>Choose your adventure.</span></p>
 </div>
 
-<!-- <div id="featured-activities-grid">
-  <ul>
-    <li><a href="#"><img src="http://s17.postimg.org/xixeyesbz/image_grid.png"></a></li>
-    <li><a href="#"><img src="http://s17.postimg.org/xixeyesbz/image_grid.png"></a></li>
-    <li><a href="#"><img src="http://s17.postimg.org/xixeyesbz/image_grid.png"></a></li>
-    <li><a href="#"><img src="http://s17.postimg.org/xixeyesbz/image_grid.png"></a></li>
-    <li><a href="#"><img src="http://s17.postimg.org/xixeyesbz/image_grid.png"></a></li>
-    <li><a href="#"><img src="http://s17.postimg.org/xixeyesbz/image_grid.png"></a></li>
-    <li><a href="#"><img src="http://s17.postimg.org/xixeyesbz/image_grid.png"></a></li>
-    <li><a href="#"><img src="http://s17.postimg.org/xixeyesbz/image_grid.png"></a></li>
-    <li><a href="#"><img src="http://s17.postimg.org/xixeyesbz/image_grid.png"></a></li>
-   </ul>
-</div> -->
-
 <div class="container">
-	<div class="row destacados">
-		<div class="col-md-4">
-    		<div>
-				<img src="http://lorempixel.com/200/200/abstract/1/" alt="Texto Alternativo" class="img-circle img-thumbnail">
-				<h2>Diseño Web</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua.</p>
-				<a href="#" class="btn btn-primary" title="Enlace">Leer más »</a>
-			</div>
-		</div>
+	<div class="row featured-activities">
+    <% featuredActivities.each(function(activity) { %>
+  		<div class="col-md-4">
+  			<div>
+  				<img src="<%= activity.get('img_url') %>" alt="" class="img-thumbnail">
+  				<h2><%= activity.escape('title') %></h2>
+  				<p><%= activity.escape('description').substr(0, 140) + '...' %></p>
+  				<a href="<%='#/activities/' + activity.id %>" class="btn btn-primary">Learn More »</a>
+  			</div>
+  		</div>
+    <% }) %>
 
-		<div class="col-md-4">
-			<div>
-				<img src="http://lorempixel.com/200/200/abstract/2/" alt="Texto Alternativo" class="img-circle img-thumbnail">
-				<h2>Desarrollo Web</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua.</p>
-				<a href="#" class="btn btn-primary" title="Enlace">Leer más »</a>
-			</div>
-		</div>
-
-		<div class="col-md-4">
-			<div>
-				<img src="http://lorempixel.com/200/200/abstract/3/" alt="Texto Alternativo" class="img-circle img-thumbnail">
-				<h2>Alojamiento Web</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua.</p>
-				<a href="#" class="btn btn-primary" title="Enlace">Leer más »</a>
-			</div>
-		</div>
 	</div>
 </div>
