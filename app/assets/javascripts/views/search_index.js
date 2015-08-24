@@ -36,7 +36,7 @@ HeadOutdoors.Views.SearchIndex = Backbone.CompositeView.extend({
     cities.fetch({
       success: function(collection) {
         collection.each(function(city) {
-          cityNames.push(city.get('name'));
+          cityNames.push(city.get('city'));
         });
         view._typeaheadCities = new Bloodhound({
           datumTokenizer: Bloodhound.tokenizers.whitespace,

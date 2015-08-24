@@ -57,7 +57,7 @@ footer {
   font-size: 16px;
   color: white;
   opacity: 0.5;
-  margin: auto 0;
+  margin-top: 10px;
 }
 
 .form-signin {
@@ -315,7 +315,8 @@ p#search-index-heading-tagline span {
 .cities-list,
 .categories-list,
 .city-results-list,
-.category-results-list {
+.category-results-list,
+.search-results-list {
   margin-top: 130px;
 }
 
