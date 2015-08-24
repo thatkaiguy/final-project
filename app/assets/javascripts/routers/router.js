@@ -30,11 +30,13 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
   browseByCategory: function(id) {
     var categoryLinks = new HeadOutdoors.Collections.CategoryLinks();
     var queriedActivities = new HeadOutdoors.Collections.Activities();
-
+    var category = new HeadOutdoors.Models.Category({ id: id });
     var browseByCategoryView = new HeadOutdoors.Views.BrowseCategoryIndex({
-      collection: queriedActivities
+      collection: queriedActivities,
+      model: category
     });
 
+    category.fetch();
     categoryLinks.fetch({ data: $.param({ category_id: id }),
       success: function(links) {
         links.each(function(link) {

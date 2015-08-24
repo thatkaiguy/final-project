@@ -6,7 +6,7 @@
       <div class="caption">
          <h5> <%= activity.escape('title') %></h5>
          <!-- TODO use max len -->
-         <p> <%= activity.escape('description').substr(0, 140) + '...' %></p>
+         <p> <%= activity.escape('description').substr(0, 100) + '...' %></p>
          <p>
             <a href="<%= '#/activities/' + activity.escape('id') %>"
                class="btn btn-primary result-dtl-btn"

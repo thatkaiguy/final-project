@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get 'cities', to: 'cities#unique_cities'
     get 'cities/as_strings', to: 'cities#as_strings'
     resources :searches, only: [:index]
-    resources :categories, only: [:create, :index]
+    resources :categories, only: [:create, :index, :show]
     get 'categories/by_label', to: 'categories#by_label'
     resources :category_links, only: [:create, :index]
     resources :booked_activities, only: [:create, :index]

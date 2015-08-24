@@ -179,7 +179,8 @@ footer {
  }
 
  .search-result-index-item {
-   margin-top: 35px
+   margin-top: 35px;
+   margin-bottom: 35px;
  }
 
  .result-dtl-btn {
@@ -301,7 +302,8 @@ p#search-index-heading-tagline span {
 }
 
 .browse-by-cities-header,
-.browse-by-categories-header {
+.browse-by-categories-header,
+.search-results-index-header {
   border: 1px solid;
   width: 100%;
   height: 150px;
@@ -311,26 +313,18 @@ p#search-index-heading-tagline span {
 }
 
 .cities-list,
-.categories-list {
+.categories-list,
+.city-results-list,
+.category-results-list {
   margin-top: 130px;
 }
 
 .browse-by-cities-header h2,
-.browse-by-categories-header h2{
+.browse-by-categories-header h2,
+.search-results-index-header h2 {
   color: white;
   text-align: center;
   position: absolute;
   top: 60px;
   left: 10%;
 }
-
-// .btm-barred {
-//     content: "";
-//     height: 4px;
-//     left: 50%;
-//     margin-left: -15%;
-//     position: absolute;
-//     bottom: -2px;
-//     width: 30%;
-//     background-color: #d5d5d5;
-// }

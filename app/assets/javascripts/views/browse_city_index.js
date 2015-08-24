@@ -1,15 +1,16 @@
 HeadOutdoors.Views.BrowseCityIndex = Backbone.CompositeView.extend({
   template: JST['browse_city_index'],
 
-  initialize: function() {
+  initialize: function(options) {
+    this.city = options.city;
     this.listenTo(this.collection, 'add', this.addBrowseCityIndexItemSubview);
     this.collection.each(this.addBrowseCityIndexItemSubview.bind(this));
   },
 
-  className: 'browse-city-index',
+  className: 'browse-city-index-wrapper',
 
   render: function() {
-    var content = this.template();
+    var content = this.template({ city: this.city });
     this.$el.html(content);
     this.attachSubviews();
     return this;
