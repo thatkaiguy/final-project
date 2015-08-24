@@ -7,3 +7,14 @@
     <% end %>
 <% end %>
 <%= render "/shared/user_form", user: @user, is_login_page: true %>
+
+<script type="text/javascript">
+  $(function(){
+    $("#guest-sign-in").click(function(e) {
+      e.preventDefault();
+      $("#user_email").val("guest@headoutdoors.me");
+      $("#user_pw").val("password");
+      $("#action-btn").click();
+    })
+  });
+</script>

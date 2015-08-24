@@ -24,9 +24,12 @@
     id="user_pw"
     value="<%= user.password %>">
 
-  <button type="submit" class="btn btn-lg btn-primary btn-block"><%= button_text %></button>
+  <button type="submit"
+          id="action-btn"
+          class="btn btn-lg btn-primary btn-block"><%= button_text %></button>
 
   <% if is_login_page %>
-    <a href="<%= new_user_url %>">Sign Up</a>
+    <a class="pull-left" href="<%= new_user_url %>">Sign Up</a>
+    <a class="pull-right" id="guest-sign-in" href="#">Sign in as Guest</a>
   <% end %>
 </form>

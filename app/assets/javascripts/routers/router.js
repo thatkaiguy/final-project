@@ -23,7 +23,6 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
       model: this.user
     });
 
-    //this.user.fetch();
     this._swap(showProfileView);
   },
 
@@ -107,7 +106,6 @@ HeadOutdoors.Routers.Router = Backbone.Router.extend({
     });
 
     activity.fetch();
-    //this.user.fetch();
     this._swap(activityShowForm);
   },
 
