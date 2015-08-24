@@ -1,7 +1,7 @@
 HeadOutdoors.Views.BrowseByCities = Backbone.CompositeView.extend({
   template: JST['browse_by_cities'],
 
-  className: 'browse-by-cities',
+  className: 'browse-by-cities-wrapper',
 
   initialize: function() {
     this.listenTo(this.collection, 'sync', this.render);

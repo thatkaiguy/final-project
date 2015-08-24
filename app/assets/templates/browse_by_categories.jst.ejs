@@ -1,9 +1,12 @@
-<ul class="categories-list">
-  <% categories.each(function(category) { %>
-    <li>
-      <a href="<%= '#/browse/categories/' + category.escape('id') %>">
-        <%= category.escape('label') %>
-      </a>
-    </li>
-  <% }); %>
-</ul>
+<div class="browse-by-categories-header"><h2>Browse our top categories.</h2></div>
+<div class="container categories-list">
+  <div class="col-md-8 col-md-offset-2">
+    <% categories.each(function(category) { %>
+        <div class="category-caption">
+          <a href="<%= '#/browse/categories/' + category.escape('id') %>">
+            <%= category.escape('label') %>
+          </a>
+        </div>
+    <% }); %>
+  </div>
+</div>

@@ -1,9 +1,12 @@
-<ul class="cities-list">
-  <% cities.each(function(city) { %>
-    <li>
-      <a href="<%= '#/browse/cities/' + encodeURIComponent(city.escape('name')) %>">
-        <%= city.escape('name') %>
-      </a>
-    </li>
-  <% }); %>
-</ul>
+<div class="browse-by-cities-header"><h2>Browse our top cities.</h2></div>
+<div class="container cities-list">
+  <div class="col-md-8 col-md-offset-2">
+    <% cities.each(function(city) { %>
+      <div class="city-caption">
+         <a href="<%= '#/browse/cities/' + encodeURIComponent(city.escape('city')) %>">
+           <%= city.escape('city') + ", " + city.escape('state') %>
+         </a>
+      </div>
+    <% }); %>
+  </div>
+</div>

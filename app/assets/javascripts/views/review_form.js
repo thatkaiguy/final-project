@@ -47,7 +47,6 @@ HeadOutdoors.Views.ReviewForm = Backbone.CompositeView.extend({
         view.activity.fetch();
       },
       error: function(review, xhr) {
-        debugger;
         var errorMsgs = $.parseJSON(xhr.responseText).errors;
         errorMsgs.forEach(function(errorMsg) {
           view.addAlert({

@@ -1,3 +1,3 @@
 json.array! @cities do |city|
-  json.name city
+  json.extract! city, :city, :state
 end

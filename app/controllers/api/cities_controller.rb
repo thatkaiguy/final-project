@@ -1,6 +1,6 @@
 class Api::CitiesController < ApplicationController
   def unique_cities
-    @cities = Address.group(:city).pluck(:city)
+    @cities = Address.group(:city, :state).select(:city, :state)
     render :unique_cities
   end
 
