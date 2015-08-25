@@ -32,6 +32,7 @@ gem 'bootstrap-sass'
 gem 'validates_email_format_of'
 gem 'cloudinary'
 gem 'figaro'
+gem 'seed_dump'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -20,7 +20,6 @@ HeadOutdoors.Views.ActivityForm = Backbone.CompositeView.extend({
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function(error, result){
       var resized = result[0].eager[0];
       var original = result[0];
-      debugger;
       view.model.set({
         "img_url": resized.url,
         "img_url_full_size": original.url
